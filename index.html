@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Az Zubdatul Quran Institute</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green-deep: #0a3d1f;
+    --green-mid: #145a32;
+    --green-bright: #1e8449;
+    --green-light: #a9dfbf;
+    --gold: #c9a84c;
+    --gold-light: #f0d080;
+    --cream: #fdfaf4;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-muted: #555;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(10, 61, 31, 0.97);
+    backdrop-filter: blur(10px);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--green-deep) 0%, #0d4a25 50%, var(--green-mid) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Geometric pattern overlay */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(201,168,76,0.04) 0, rgba(201,168,76,0.04) 1px, transparent 0, transparent 50%),
+      repeating-linear-gradient(-45deg, rgba(201,168,76,0.04) 0, rgba(201,168,76,0.04) 1px, transparent 0, transparent 50%);
+    background-size: 30px 30px;
+  }
+
+  /* Glow orbs */
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(30,132,73,0.3) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .bismillah {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--gold);
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 40px rgba(201,168,76,0.5);
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 1s ease both;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 0 auto 2rem;
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 1s 0.2s ease both;
+  }
+
+  .hero-tagline {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    position: relative; z-index: 1;
+    animation: fadeDown 1s 0.3s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: var(--white);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+    position: relative; z-index: 1;
+    animation: fadeDown 1s 0.4s ease both;
+  }
+
+  .hero h1 span {
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin: 1.5rem auto 2.5rem;
+    max-width: 520px;
+    line-height: 1.7;
+    position: relative; z-index: 1;
+    animation: fadeDown 1s 0.5s ease both;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative; z-index: 1;
+    animation: fadeDown 1s 0.6s ease both;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), #a0782a);
+    color: var(--green-deep);
+    padding: 0.85rem 2.2rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.5);
+  }
+
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.4);
+    color: var(--white);
+    padding: 0.85rem 2.2rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.1);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.5;
+    animation: bounce 2s infinite;
+  }
+
+  .hero-scroll span {
+    font-size: 0.7rem;
+    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .hero-scroll::after {
+    content: '↓';
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+
+  /* ===== STATS STRIP ===== */
+  .stats-strip {
+    background: var(--green-deep);
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .stat-item {
+    text-align: center;
+    color: white;
+  }
+
+  .stat-num {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    display: block;
+    font-weight: 700;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ===== SECTION BASE ===== */
+  section { padding: 90px 5%; }
+
+  .section-label {
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--green-bright);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--green-deep);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .section-line {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--green-bright), var(--gold));
+    margin: 0 auto 3.5rem;
+    border-radius: 2px;
+  }
+
+  /* ===== ABOUT ===== */
+  .about { background: var(--white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .about-visual {
+    background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+    border-radius: 12px;
+    padding: 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 0, transparent 20px);
+  }
+
+  .about-icon {
+    font-size: 5rem;
+    display: block;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-visual p {
+    color: rgba(255,255,255,0.8);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    position: relative; z-index: 1;
+  }
+
+  .about-visual .arabic-quote {
+    color: var(--gold);
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    position: relative; z-index: 1;
+  }
+
+  .about-text h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    color: var(--green-deep);
+    margin-bottom: 1rem;
+  }
+
+  .about-text p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .about-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+  }
+
+  .about-feature::before {
+    content: '✓';
+    background: var(--green-bright);
+    color: white;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+
+  /* ===== COURSES ===== */
+  .courses { background: var(--cream); }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .course-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 2rem 1.75rem;
+    border: 1px solid rgba(0,0,0,0.07);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .course-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--green-bright), var(--gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+    border-color: rgba(30,132,73,0.2);
+  }
+
+  .course-card:hover::before { transform: scaleX(1); }
+
+  .course-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .course-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: var(--green-deep);
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+  }
+
+  .course-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .course-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(30,132,73,0.08);
+    color: var(--green-bright);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== TEACHERS ===== */
+  .teachers { background: var(--green-deep); }
+
+  .teachers .section-title { color: var(--white); }
+  .teachers .section-label { color: var(--gold-light); }
+
+  .teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .teacher-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .teacher-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-4px);
+  }
+
+  .teacher-avatar {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--green-bright), var(--gold));
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    border: 3px solid rgba(201,168,76,0.4);
+  }
+
+  .teacher-card h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .teacher-role {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .teacher-card p {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* ===== WHY US ===== */
+  .why { background: var(--white); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .why-item {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: box-shadow 0.3s;
+  }
+
+  .why-item:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+  }
+
+  .why-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .why-item h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--green-deep);
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+  }
+
+  .why-item p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    background: linear-gradient(135deg, var(--green-mid), var(--green-deep));
+    padding: 80px 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(45deg, rgba(201,168,76,0.05) 0, rgba(201,168,76,0.05) 1px, transparent 0, transparent 30px);
+  }
+
+  .cta-section h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--white);
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    margin-bottom: 1rem;
+    position: relative; z-index: 1;
+  }
+
+  .cta-section p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    position: relative; z-index: 1;
+  }
+
+  .cta-section .btn-primary { position: relative; z-index: 1; }
+
+  /* ===== CONTACT ===== */
+  .contact { background: var(--cream); }
+
+  .contact-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-cards {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .contact-card {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 10px;
+    padding: 1.75rem 2rem;
+    min-width: 200px;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+
+  .contact-card:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transform: translateY(-3px);
+  }
+
+  .contact-card .icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .contact-card h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--green-deep);
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .contact-card p, .contact-card a {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+
+  .contact-card a:hover { color: var(--green-bright); }
+
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #25D366;
+    color: white !important;
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 2.5rem;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(37,211,102,0.35);
+  }
+
+  .whatsapp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37,211,102,0.45);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--green-deep);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 2.5rem 5%;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+
+  footer .footer-name {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+    .stats-strip { gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">Az Zubdatul Quran</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#teachers">Teachers</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+  <div class="hero-divider"></div>
+  <p class="hero-tagline">Welcome to</p>
+  <h1>Az Zubdatul Quran<span>Institute</span></h1>
+  <p class="hero-sub">Learn the Holy Quran with expert teachers from the comfort of your home — online, one-on-one, anytime.</p>
+  <div class="hero-btns">
+    <a href="#courses" class="btn-primary">Explore Courses</a>
+    <a href="#contact" class="btn-outline">Enroll Now</a>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <span class="stat-num">500+</span>
+    <span class="stat-label">Students Enrolled</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">5+</span>
+    <span class="stat-label">Courses Offered</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">2</span>
+    <span class="stat-label">Expert Teachers</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">24/7</span>
+    <span class="stat-label">Online Classes</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <p class="section-label">Who We Are</p>
+  <h2 class="section-title">About Our Institute</h2>
+  <div class="section-line"></div>
+  <div class="about-grid">
+    <div class="about-visual">
+      <span class="arabic-quote">اقْرَأْ بِاسْمِ رَبِّكَ</span>
+      <span class="about-icon">📖</span>
+      <p>"Read in the name of your Lord who created" — Al-Quran 96:1</p>
+    </div>
+    <div class="about-text">
+      <h3>A Place of Sacred Knowledge</h3>
+      <p>Az Zubdatul Quran Institute is a dedicated online Quran learning platform, bringing authentic Quranic education to students across the world.</p>
+      <p>Our mission is to make the knowledge of the Holy Quran accessible to every Muslim — young and old — regardless of where they live.</p>
+      <div class="about-features">
+        <div class="about-feature">One-on-one personalized sessions</div>
+        <div class="about-feature">Flexible class timings for every schedule</div>
+        <div class="about-feature">Qualified and experienced teachers</div>
+        <div class="about-feature">Classes for all ages and levels</div>
+        <div class="about-feature">Safe and comfortable online environment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="courses" id="courses">
+  <p class="section-label">What We Teach</p>
+  <h2 class="section-title">Our Courses</h2>
+  <div class="section-line"></div>
+  <div class="courses-grid">
+
+    <div class="course-card">
+      <span class="course-icon">🌙</span>
+      <h3>Madani Qaida</h3>
+      <p>The perfect starting point for beginners. Learn Arabic letters, sounds, and basic reading rules step by step.</p>
+      <span class="course-tag">Beginner</span>
+    </div>
+
+    <div class="course-card">
+      <span class="course-icon">📖</span>
+      <h3>Nazra Quran</h3>
+      <p>Learn to read the Holy Quran fluently and correctly, verse by verse, with proper pronunciation.</p>
+      <span class="course-tag">All Levels</span>
+    </div>
+
+    <div class="course-card">
+      <span class="course-icon">🕌</span>
+      <h3>Hifz ul Quran</h3>
+      <p>Memorize the Holy Quran under the guidance of a qualified Hafiz with a structured and proven approach.</p>
+      <span class="course-tag">Advanced</span>
+    </div>
+
+    <div class="course-card">
+      <span class="course-icon">✨</span>
+      <h3>Tajweed ul Quran</h3>
+      <p>Master the rules of Tajweed and recite the Quran beautifully, the way it was revealed to our Prophet ﷺ.</p>
+      <span class="course-tag">Intermediate</span>
+    </div>
+
+    <div class="course-card">
+      <span class="course-icon">📚</span>
+      <h3>Other Courses</h3>
+      <p>Islamic studies, duas, surahs for daily life, and more — tailored to the student's needs and goals.</p>
+      <span class="course-tag">Flexible</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEACHERS -->
+<section class="teachers" id="teachers">
+  <p class="section-label">Meet the Educators</p>
+  <h2 class="section-title">Our Teachers</h2>
+  <div class="section-line"></div>
+  <div class="teachers-grid">
+
+    <div class="teacher-card">
+      <div class="teacher-avatar">👨‍🏫</div>
+      <h3>Qari Abubakar Abbasi</h3>
+      <p class="teacher-role">Quran & Tajweed Teacher</p>
+      <p>A highly qualified Qari with expertise in Tajweed, Hifz, and Quran recitation. Known for his patient teaching style and dedication to every student's progress.</p>
+    </div>
+
+    <div class="teacher-card">
+      <div class="teacher-avatar">👩‍🏫</div>
+      <h3>Fatima Abbasi</h3>
+      <p class="teacher-role">Female Quran Teacher</p>
+      <p>A dedicated female teacher specializing in Nazra and foundational Quran education for sisters and children. Warm, encouraging, and highly experienced.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <p class="section-label">Our Promise</p>
+  <h2 class="section-title">Why Choose Us</h2>
+  <div class="section-line"></div>
+  <div class="why-grid">
+    <div class="why-item">
+      <span class="why-icon">🌍</span>
+      <h3>Learn From Anywhere</h3>
+      <p>Join from any country in the world. All you need is a phone or computer and internet connection.</p>
+    </div>
+    <div class="why-item">
+      <span class="why-icon">🕐</span>
+      <h3>Flexible Timings</h3>
+      <p>We offer morning, afternoon, and evening slots so learning fits your busy schedule.</p>
+    </div>
+    <div class="why-item">
+      <span class="why-icon">👤</span>
+      <h3>One-on-One Classes</h3>
+      <p>Every student gets personal attention. No large groups — just you and the teacher.</p>
+    </div>
+    <div class="why-item">
+      <span class="why-icon">🎓</span>
+      <h3>Certified Teachers</h3>
+      <p>Our teachers are certified and experienced in Quran education with proven track records.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Begin Your Quran Journey Today</h2>
+  <p>Enroll now and take the first step toward learning the Book of Allah.</p>
+  <a href="#contact" class="btn-primary">Get Started — It's Free</a>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-label">Get In Touch</p>
+  <h2 class="section-title">Contact Us</h2>
+  <div class="section-line"></div>
+  <div class="contact-inner">
+    <div class="contact-cards">
+      <div class="contact-card">
+        <span class="icon">📞</span>
+        <h4>Phone</h4>
+        <a href="tel:03127434040">0312-7434040</a>
+      </div>
+      <div class="contact-card">
+        <span class="icon">💬</span>
+        <h4>WhatsApp</h4>
+        <a href="https://wa.me/923127434040">Chat with Us</a>
+      </div>
+      <div class="contact-card">
+        <span class="icon">🌐</span>
+        <h4>Mode</h4>
+        <p>Online — Worldwide</p>
+      </div>
+    </div>
+    <a href="https://wa.me/923127434040" class="whatsapp-btn" target="_blank">
+      💬 &nbsp; Enroll via WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">Az Zubdatul Quran Institute</span>
+  &copy; 2026 All rights reserved. — Spreading the Light of Quran Worldwide.
+</footer>
+
+</body>
+</html>
